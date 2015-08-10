@@ -48,29 +48,24 @@ SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = false
 SWEP.Secondary.Ammo = "none"
-SWEP.HoldType = "normal"
+-- SWEP.HoldType = "normal"
 
 function SWEP:Deploy()
-	self.Owner:DrawViewModel(false)
-	LocalPlayer().ClairvoyanceEnabled = false
+	-- self.Owner:DrawViewModel(false)
 end
 
 function SWEP:DrawWorldModel()
-     -- self:DrawModel()
+     self:DrawModel()
 end
 
 function SWEP:Initialize()
-	self:SetWeaponHoldType( self.HoldType )
+	self:SetWeaponHoldType( "normal" )
 end
 
 function SWEP:Reload()
 end
  
 function SWEP:Think()
-end
-
-function SWEP:OnRemove(ply)
-	ply.ClairvoyanceEnabled = false
 end
  
 function SWEP:PrimaryAttack()
@@ -80,19 +75,3 @@ end
 function SWEP:SecondaryAttack()
 	LocalPlayer().ClairvoyanceEnabled = false
 end
-
-hook.Add( "PreDrawHalos", "AddHalos", function()
-		if LocalPlayer().ClairvoyanceEnabled then
-			halo.Add(ents.FindByClass( "prop_physics*" ), Color( 0, 0, 255 ), 1, 1, 2,true,true)
-			halo.Add(ents.FindByClass( "player*" ), Color( 0, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "ents_*" ), Color( 255, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "ent_*" ), Color( 255, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "*_ent" ), Color( 255, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "*_ents" ), Color( 255, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "money_*" ), Color( 0, 255, 0 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "weapon_*" ), Color( 0, 0, 255 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "swep_*" ), Color( 255, 0, 0 ), 1, 1, 2, true,true)
-			halo.Add(ents.FindByClass( "death_note" ), Color( 255, 0, 0 ), 1, 1, 2, true,true)
-		end
-	
-end )

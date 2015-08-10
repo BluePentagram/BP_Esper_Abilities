@@ -8,7 +8,7 @@ if SERVER then
 	SWEP.AutoSwitchFrom = false
  
 elseif CLIENT then 
-	SWEP.PrintName = "Telepathy - WIP"
+	SWEP.PrintName = "Teleport - WIP"
 	SWEP.Slot = 0
 	SWEP.SlotPos = 6
 	SWEP.DrawAmmo = false
@@ -17,8 +17,8 @@ end
  
 SWEP.Author = "Blue-Pentagram"
 SWEP.Instructions = "-To Be Added-"
-SWEP.Contact = "http://steamcommunity.com/workshop/filedetails/discussion/278185787/617330406650185272/"
-SWEP.Purpose = "Allow you to communicate to other people or all the other telepaths"
+SWEP.Contact = "-To Be Added-"
+SWEP.Purpose = "-To Be Added-"
 SWEP.Category = "Esper Abilitys"
 SWEP.Spawnable = true
 SWEP.AdminOnly = true
@@ -42,7 +42,7 @@ function SWEP:Deploy()
 end
 
 function SWEP:DrawWorldModel()
-     self:DrawModel()
+     -- self:DrawModel()
 end
 
 function SWEP:Initialize()
