@@ -14,7 +14,8 @@ elseif CLIENT then
 	SWEP.DrawAmmo = false
 	SWEP.DrawCrosshair = false
 end
- 
+-- local ply = SWEP.Owner
+
 SWEP.Author = "Blue-Pentagram"
 SWEP.Instructions = "-To Be Added-"
 SWEP.Contact = "http://steamcommunity.com/workshop/filedetails/discussion/278185787/617330406650185272/"
@@ -55,10 +56,10 @@ end
 function SWEP:Think()
 end
  
-function SWEP:PrimaryAttack()
-
+function SWEP:PrimaryAttack(ply)
+	LocalPlayer().TelepathyEnabled = true
 end
 
-function SWEP:SecondaryAttack()
-
+function SWEP:SecondaryAttack(ply)
+	LocalPlayer().TelepathyEnabled = true
 end

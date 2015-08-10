@@ -7,7 +7,7 @@ elseif CLIENT then
 		y = 60
 		surface.SetFont( "Default" )
 		surface.SetDrawColor( 255, 255, 255, 255) 
-		if LocalPlayer():HasWeapon("esper_clairvoyance") then
+		-- if LocalPlayer():HasWeapon("esper_clairvoyance") then
 			surface.SetTextPos( x, y )
 			if LocalPlayer().ClairvoyanceEnabled then
 				surface.DrawText( "Clairvoyance - Enabled" )
@@ -15,13 +15,17 @@ elseif CLIENT then
 				surface.DrawText( "Clairvoyance - Disabled" )
 			end
 			y = y + 15
-		end
-		if LocalPlayer():HasWeapon("esper_telepathy") then
+		-- end
+		-- if LocalPlayer():HasWeapon("esper_telepathy") then
 			surface.SetTextPos( x, y )
-			surface.DrawText( "Telepath - " )
+			if LocalPlayer().TelepathyEnabled then
+				surface.DrawText( "Telepath - Disabled" )
+			else
+				surface.DrawText( "Telepath - " )
+			end
 			y = y + 15
-		end
-		if LocalPlayer():HasWeapon("esper_teleport") then
+		-- end
+		-- if LocalPlayer():HasWeapon("esper_teleport") then
 			surface.SetTextPos( x, y )
 			surface.DrawText( "Teleport:" )
 			y = y + 15
@@ -33,7 +37,7 @@ elseif CLIENT then
 			y = y + 15
 			surface.SetTextPos( x, y )
 			surface.DrawText( "Z: ".."WIP" )
-		end
+		-- end
 	end 
 	hook.Add("HUDPaint", "EsperHud", EsperHud) -- I'll explain hooks and functions in a second
 end
@@ -61,8 +65,8 @@ function EsperTelepathy( ply, text, teamonly )
 end
 hook.Add( "PlayerSay", "EsperTelepathy", EsperTelepathy )
 
-function EsperDeath( ply )
-	ply.ClairvoyanceEnabled	= false
-	ply.TelepathyEnabled	= false
+function PointGainPlayer(victim,weapon,killer)
+	victim.ClairvoyanceEnabled	= false
+	victim.TelepathyEnabled		= false
 end
 hook.Add( "PlayerDeath", "EsperDeath", EsperDeath )

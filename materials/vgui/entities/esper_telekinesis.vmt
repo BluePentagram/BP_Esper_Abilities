@@ -1,7 +1,0 @@
-"UnlitGeneric"
-{
-	"$basetexture" "VGUI/entities/atom_icon"
-	"$nolod" 1
-	"$vertexalpha" 1
-	"$vertexcolor" 1
-}

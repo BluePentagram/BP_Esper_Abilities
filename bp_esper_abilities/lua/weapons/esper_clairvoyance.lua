@@ -48,18 +48,16 @@ SWEP.Secondary.ClipSize = -1
 SWEP.Secondary.DefaultClip = -1
 SWEP.Secondary.Automatic = false
 SWEP.Secondary.Ammo = "none"
--- SWEP.HoldType = "normal"
+SWEP.HoldType = "normal"
 
 function SWEP:Deploy()
-	-- self.Owner:DrawViewModel(false)
 end
 
 function SWEP:DrawWorldModel()
-     self:DrawModel()
 end
 
 function SWEP:Initialize()
-	self:SetWeaponHoldType( "normal" )
+	self:SetWeaponHoldType( self.HoldType )
 end
 
 function SWEP:Reload()
